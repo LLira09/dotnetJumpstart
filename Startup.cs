@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using dotnet_rpg.Services.CharacterService;
 
 namespace dotnet_rpg
 {
@@ -28,6 +29,7 @@ namespace dotnet_rpg
         {
 
             services.AddControllers();
+            services.AddScoped<ICharacterService, CharacterService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "dotnet_rpg", Version = "v1" });
